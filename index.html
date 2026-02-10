@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>for Tanisha</title>
+<style>
+body { font-family: Arial; margin: 0; padding: 0; text-align: center; background: #ffe4ef; color: #4a0d1f; }
+.screen { display: none; padding: 40px 20px; }
+.screen.active { display: block; }
+button { padding: 12px 20px; margin: 10px; font-size: 16px; border-radius: 20px; border: none; background: #ffb6c1; color: white; cursor: pointer; }
+button:hover { opacity: 0.9; }
+</style>
+</head>
+<body>
+
+<!-- Screen 1: Mood -->
+<div id="s1" class="screen active">
+  <p>Tanisha tell me how you feel right now my love</p>
+  <button id="sadBtn">sad</button>
+  <button id="angryBtn">angry</button>
+  <button id="tiredBtn">tired</button>
+  <button id="missBtn">miss</button>
+</div>
+
+<!-- Screen 2: Mood Text -->
+<div id="s2" class="screen">
+  <div id="moodText"></div>
+  <button id="continueBtn">continue</button>
+</div>
+
+<!-- Screen 3: Choices -->
+<div id="s3" class="screen">
+  <p>what do you want from me my love</p>
+  <button id="hugMeBtn">hug me</button>
+  <button id="softBtn">something soft</button>
+  <button id="whyBtn">why you love me</button>
+</div>
+
+<!-- Screen 4: Choice Text -->
+<div id="s4" class="screen">
+  <div id="choiceText"></div>
+  <button id="nextBtn">next</button>
+</div>
+
+<!-- Screen 5: Ending -->
+<div id="s5" class="screen">
+  <p>Tanisha my love i am so deeply sorry for everything i love you more than words can ever say from Rafay your love im sorry</p>
+  <button id="replayBtn">replay</button>
+</div>
+
+<script>
+// show screen n
+function show(n){
+  document.querySelector(".screen.active").classList.remove("active")
+  document.getElementById("s"+n).classList.add("active")
+}
+
+// longer mood paragraphs
+const moodTexts = {
+  sad:"my dearest Tanisha my heart aches knowing you feel so sad right now i wish i could take every bit of hurt and heaviness from your heart and hold you so close in my arms and whisper that everything will be okay i love you more than the stars love the night sky and im endlessly sorry for any time i have made you feel anything less than loved you are my everything and i will always choose you",
+  angry:"my love Tanisha i am so deeply sorry for any frustration i have caused and for the moments i have not been there the way you needed me to be please know that my heart sees yours and it beats only for you i love you more than words can ever hold and every time you are upset i wish i could take it away and replace it with all the love and warmth you deserve i am endlessly sorry and i love you more than life itself",
+  tired:"sweet Tanisha my love i am so sorry that you feel so tired and exhausted let me carry some of your weight even if only in my love for you close your eyes and feel that you are never alone i am here with you through every hard moment and every gentle one i love you endlessly i cherish every heartbeat of yours and every breath you take and im so sorry if i ever made your days heavier you mean everything to me",
+  miss:"Tanisha my love i am so sorry for every moment you felt my absence my heart longs for you and misses you more than i can say i want to be there to hold you to tell you every single day that you are my everything my world my light and my reason to keep going i love you so deeply and i am endlessly sorry for any hurt i have caused even by being away please know my heart is always with you"
+}
+
+// longer choice paragraphs
+const choiceTexts = {
+  hug:"come here my love let me hold you so tightly that you feel how much i adore you i am so sorry for any hurt i have caused in the smallest or biggest ways i want to be your safe place your home your everything to show you with every heartbeat that you are loved beyond measure and i will spend forever proving it to you",
+  soft:"Tanisha my love you are cherished and adored even when the world feels heavy and i am sorry if i ever failed to remind you of that every gentle thought i have is for you every loving moment in my heart is for you i promise to hold your heart carefully and love you endlessly you are my everything and i am so sorry if i ever let you feel anything less",
+  why:"my sweet Tanisha i love you because your heart is so rare and beautiful because you see the world with such love and kindness and because you have chosen to share your heart with me i am endlessly grateful for you and so sorry if i ever made you doubt my love you are my everything my heart my soul and my forever i love you endlessly and im sorry from the bottom of my heart"
+}
+
+// mood buttons
+document.getElementById("sadBtn").addEventListener("click", ()=>{
+  document.getElementById("moodText").innerText = moodTexts.sad
+  show(2)
+})
+document.getElementById("angryBtn").addEventListener("click", ()=>{
+  document.getElementById("moodText").innerText = moodTexts.angry
+  show(2)
+})
+document.getElementById("tiredBtn").addEventListener("click", ()=>{
+  document.getElementById("moodText").innerText = moodTexts.tired
+  show(2)
+})
+document.getElementById("missBtn").addEventListener("click", ()=>{
+  document.getElementById("moodText").innerText = moodTexts.miss
+  show(2)
+})
+
+// continue button
+document.getElementById("continueBtn").addEventListener("click", ()=>show(3))
+
+// choice buttons
+document.getElementById("hugMeBtn").addEventListener("click", ()=>{
+  document.getElementById("choiceText").innerText = choiceTexts.hug
+  show(4)
+})
+document.getElementById("softBtn").addEventListener("click", ()=>{
+  document.getElementById("choiceText").innerText = choiceTexts.soft
+  show(4)
+})
+document.getElementById("whyBtn").addEventListener("click", ()=>{
+  document.getElementById("choiceText").innerText = choiceTexts.why
+  show(4)
+})
+
+// next button
+document.getElementById("nextBtn").addEventListener("click", ()=>show(5))
+
+// replay button
+document.getElementById("replayBtn").addEventListener("click", ()=>show(1))
+</script>
+
+</body>
+</html>
